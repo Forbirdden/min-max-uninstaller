@@ -10,7 +10,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13.7'
+          python-version: '3.9.7'
       - uses: actions/checkout@v4
       - name: Build
         uses: eric2788/pyinstaller-build@0.1.3
