@@ -34,3 +34,10 @@ pip install PySide6 pyinstaller
 python -m PyInstaller --onefile --windowed --name "min" --add-data "adb:." min.py
 
 ```
+Также для работы нужен файл adb(adb.exe) и все его дополнительные файлы в той же самой что и запакованный min, скачать adb можно с сайта Google:
+
+[Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
+
+[MacOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip)
+
+[Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
