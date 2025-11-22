@@ -25,16 +25,26 @@
 <img width="391" height="37" alt="image" src="https://github.com/user-attachments/assets/d3117d59-a960-4de9-ab46-1961fa8d99a9" />
 
 ## Сборка
-Установка QT и pyinstaller:
+Для клонирования репозитория нужен Git (но можно и просто скачать репозиторий с сайта), для сборки нужен Python
+### Клонирование репозитория:
+```
+git clone https://github.com/Forbirdden/min-max-uninstaller.git
+cd min
+```
+### Установка QT и pyinstaller:
 ```
 pip install PySide6 pyinstaller
 ```
-Запаковка:
+### Запаковка:
+Windows:
+```
+python -m PyInstaller --onefile --windowed --name "min" --add-data "adb.exe;." min.py
+```
+Linux/MacOS:
 ```
 python -m PyInstaller --onefile --windowed --name "min" --add-data "adb:." min.py
-
 ```
-Также для работы нужен файл adb(или adb.exe) в той же самой что и запакованный min, скачать adb можно с сайта Google:
+Также для работы нужен файл adb(или adb.exe) в той же самой папке, что и запакованный min, скачать adb можно с сайта Google:
 
 [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
 
