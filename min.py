@@ -7,7 +7,7 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                                QHBoxLayout, QPushButton, QTextEdit, QLabel, 
                                QProgressBar, QMessageBox, QGroupBox)
 from PySide6.QtCore import Qt, QThread, Signal
-from PySide6.QtGui import QFont, QPalette, QColor
+from PySide6.QtGui import QFont, QPalette, QColor, QIcon
 
 class ADBWorker(QThread):
     log_signal = Signal(str)
@@ -25,7 +25,6 @@ class ADBWorker(QThread):
             self.log_signal.emit("Проверяем подключение устройства...")
             self.progress_signal.emit(10)
 
-            # Проверяем наличие подключенных устройств
             result = self.run_adb_command("devices")
             devices = [line for line in result.split('\n') if '\tdevice' in line]
             
@@ -36,7 +35,6 @@ class ADBWorker(QThread):
             self.log_signal.emit(f"Найдено устройств: {len(devices)}")
             self.progress_signal.emit(30)
 
-            # Проверяем установлен ли MAX
             self.log_signal.emit("Проверяем наличие мессенджера MAX...")
             packages = self.run_adb_command("shell pm list packages")
             
@@ -47,15 +45,27 @@ class ADBWorker(QThread):
             self.log_signal.emit("MAX обнаружен, запускаем противотанковый гранатомёт...")
             self.progress_signal.emit(50)
 
-            # Пытаемся удалить приложение
-            result = self.run_adb_command(f"shell pm uninstall -k --user 0 {self.max_id}")
-            
-            if "Success" in result:
+            self.log_signal.emit("Пробуем удалить приложение...")
+            result1 = self.run_adb_command(f"shell pm uninstall {self.max_id}")
+
+            if "Success" in result1:
                 self.log_signal.emit("ЦЕЛЬ ЛИКВИДИРОВАНА")
                 self.progress_signal.emit(100)
                 self.finished_signal.emit(True, "Удаление завершено успешно")
+                return
             else:
-                    self.finished_signal.emit(False, "Не удалось удалить мессенджер MAX")
+                self.log_signal.emit("Полное удаление не удалось!")
+
+            self.log_signal.emit("Пробуем выключить приложение...")
+            result2 = self.run_adb_command(f"shell pm uninstall -k --user 0 {self.max_id}")
+
+            if "Success" in result2:
+                self.log_signal.emit("ЦЕЛЬ ЛИКВИДИРОВАНА")
+                self.progress_signal.emit(100)
+                self.finished_signal.emit(True, "Удаление завершено успешно")
+                return
+            else:
+               self.finished_signal.emit(False, "Не удалось удалить мессенджер MAX")
 
         except Exception as e:
             self.finished_signal.emit(False, f"Ошибка: {str(e)}")
@@ -79,6 +89,9 @@ class MaxRemoverApp(QMainWindow):
         self.setWindowTitle("min Tool")
         self.setGeometry(50, 50, 400, 400)
         self.setup_ui()
+
+        icon = QIcon("assets/icon.png")
+        self.setWindowIcon(icon)
         
         self.adb_path = self.find_adb()
         if not self.adb_path:
@@ -194,7 +207,6 @@ class MaxRemoverApp(QMainWindow):
 def main():
     app = QApplication(sys.argv)
     
-    # Устанавливаем стиль
     app.setStyle('Fusion')
     
     window = MaxRemoverApp()

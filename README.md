@@ -1,4 +1,4 @@
-# <img width="32" height="32" alt="min" src="https://github.com/user-attachments/assets/1cb45186-3186-47de-ac11-b003bf92dcda" /> min Tool
+# <img width="32" height="32" alt="min" src="assets/icon.png" /> min Tool
 Доведи количество ***мусора*** на СВОЁМ телефоне до ***минимума***
 
 С 1 сентября 2025 года на все телефоны официально ввозимые в Россию для последующей продажи начали предустанавливать мессенджер MAX, но не со всех его можно удалить - на многих устройствах MAX устанавливается как системное приложение, и просто так удалить его не получится
@@ -36,18 +36,12 @@ cd min
 pip install PySide6 pyinstaller
 ```
 ### Запаковка:
+Для сборки и работы нужна папка assets из репозитория
 Windows:
 ```
-python -m PyInstaller --onefile --windowed --name "min" --add-data "adb.exe;." min.py
+build.cmd
 ```
-Linux/MacOS:
+Linux:
 ```
-python -m PyInstaller --onefile --windowed --name "min" --add-data "adb:." min.py
+make
 ```
-Также для работы нужен файл adb(или adb.exe) в той же самой папке, что и запакованный min, скачать adb можно с сайта Google:
-
-[Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
-
-[MacOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip)
-
-[Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
