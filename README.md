@@ -5,9 +5,9 @@
 
 Для этого был создан min - инструмент для удаления мессенджера там, где его обычно не получится удалить
 
-![GitHub Downloads (specific asset, latest release)](https://img.shields.io/github/downloads/Forbirdden/min-max-uninstaller/latest/windows.zip?displayAssetName=false&style=for-the-badge&logo=Wine&label=%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20Windows&labelColor=%230390fc&color=%23f0f0f0)
+<a href="https://github.com/Forbirdden/min-max-uninstaller/releases/latest/download/windows.zip"><img alt="Скачать для Windows" src="https://img.shields.io/github/downloads/Forbirdden/min-max-uninstaller/latest/windows.zip?displayAssetName=false&style=for-the-badge&logo=Wine&label=%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20Windows&labelColor=%230390fc&color=%23f0f0f0"></a>
 
-![GitHub Downloads (specific asset, latest release)](https://img.shields.io/github/downloads/Forbirdden/min-max-uninstaller/latest/linux.zip?displayAssetName=false&style=for-the-badge&logo=Linux&logoColor=fff&label=%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20GNU%2FLinux&labelColor=%230390fc&color=%23f0f0f0)
+<a href="https://github.com/Forbirdden/min-max-uninstaller/releases/latest/download/linux.zip"><img alt="Скачать для Linux" src="https://img.shields.io/github/downloads/Forbirdden/min-max-uninstaller/latest/linux.zip?displayAssetName=false&style=for-the-badge&logo=Linux&logoColor=fff&label=%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20GNU%2FLinux&labelColor=%230390fc&color=%23f0f0f0"></a>
 
 ## Инструкция по использованию
 1) Откройте настройки разработчика на телефоне (как это сделать именно на своём устройстве можно узнать в интернете)
