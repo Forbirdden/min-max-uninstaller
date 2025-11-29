@@ -41,6 +41,7 @@ pip install PySide6 pyinstaller
 ```
 ### Запаковка:
 Для сборки и работы нужна папка assets из репозитория
+
 Windows:
 ```
 build.cmd
